@@ -1,0 +1,73 @@
+Deze applicatie kan het volgende:
+City-object via rest ontvangen en opslaan in de CityRepo
+
+De bedoeling van deze applicatie is echter om een CALC functie te tonen.
+Er kan een POST   de service gedaan worden met de stadsnaam en de hoogte van de uitkering (String en Double)
+@PathVariable String cityName,@PathVariable String benefit
+
+De applicatie geeft dan het volgende String format terug (voorbeeld):
+Harry has 10 inhabitants.
+Of those people, 3 are unemployed.
+That is 30.0%
+This will cost the city a total of 66.0 currency with an employment benefit of 22.0
+This means that each working individual has to pay 9.428571428571429 curreny.
+
+Er is gebruik gemaakt van het spring boot framework, omdat dat lekker snel is. De applicatie kan zijn gegevens 'bewaren'
+in CityRepo, omdat Spring alles bij de start up maar één keer aanmaakt.
+
+Controller is verantwoordelijk voor het verwerken van REST call bij binnenkomst en informatie terugggeevn
+Service is verantwoordelijk voor data uit Repo halen en eventuele berekeningen
+Repo is verantwoordelijk voor het opslaan (in dit geval in de repo klasse zelf).
+Domein klassen spreken voor zich.
+
+Als de applicatie is opgestart kun je de volgende stappen uitvoeren (om geen foutmeldingen te krijgen):
+Doe een POST request naar http://localhost:8080/city/insert (met bijvoorbeeld postman) met de volgende voorbeeld JSON:
+{"cityName":"Harry",
+"listOfInhabitants": [
+	{
+	"personLastName": "1",
+	"isEmployed": 1
+	},
+	{
+	"personLastName": "2",
+	"isEmployed": 1
+	},
+	{
+	"personLastName": "3",
+	"isEmployed": 1
+	},
+	{
+	"personLastName": "4",
+	"isEmployed": 1
+	},
+	{
+	"personLastName": "5",
+	"isEmployed": 1
+	},
+	{
+	"personLastName": "6",
+	"isEmployed": 1
+	},
+	{
+	"personLastName": "7",
+	"isEmployed": 1
+	},
+	{
+	"personLastName": "8",
+	"isEmployed": 0
+	},
+	{
+	"personLastName": "9",
+	"isEmployed": 0
+	},
+	{
+	"personLastName": "0",
+	"isEmployed": 0
+	}
+	]
+}
+
+---
+Doe daarna een POST request naar: http://localhost:8080/city/calculate/Harry/22
+Harry is de stadsnaam (systeem check of naam aanwezig is)
+22 is de hoogte van de uitkering (double)

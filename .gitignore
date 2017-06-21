@@ -1,0 +1,15 @@
+/.classpath
+/.project
+/target
+/target/*
+build.sh
+/.settings
+.idea/
+*.iml
+src/main/resources/local.properties
+src/main/resources/application.yaml
+
+deployment/\.vagrant/
+
+*.swp
+
