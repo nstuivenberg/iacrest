@@ -71,3 +71,4 @@ Doe een POST request naar http://localhost:8080/city/insert (met bijvoorbeeld po
 Doe daarna een POST request naar: http://localhost:8080/city/calculate/Harry/22
 Harry is de stadsnaam (systeem check of naam aanwezig is)
 22 is de hoogte van de uitkering (double)
+-- MVN test om te runnen
